@@ -5,7 +5,7 @@ rvm implode && sudo rm -rf ~/.rvm
 ```
 
 _If you got "command not found: rvm", carry on. It means `rvm` is not
-on your computer, which is good
+on your computer, which is good_
 
 ```
 rm -rf ~/.rbenv
