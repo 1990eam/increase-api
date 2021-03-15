@@ -1,22 +1,20 @@
 # frozen_string_literal: true
 
 class Connector::IncreaseTransactions
-  INCREASE_BASE_URL = "https://increase-transactions.herokuapp.com/"
+  INCREASE_BASE_URL = "https://increase-transactions.herokuapp.com"
+  FILE_URL = "/file.txt"
   BEARER_TOKEN = "1234567890qwertyuiopasdfghjklzxcvbnm"
 
-  def connector(url = "#{INCREASE_BASE_URL}")
-    Faraday.new(url: url) do |faraday|
-      faraday.authorization :Bearer, "#{BEARER_TOKEN}"
-      faraday.headers['Authorization']
-      faraday.response :json
-      faraday.adapter Faraday.default_adapter # make requests with Net::HTTP
-    end
-  end
-
   def fetch_file
-      connector.get do |req|
-        req.url "/file.txt"
-      end
+    url = URI("#{INCREASE_BASE_URL}/#{FILE_URL}")
+
+    https = Net::HTTP.new(url.host, url.port)
+    https.use_ssl = true
+
+    request = Net::HTTP::Get.new(url)
+    request["Authorization"] = "Bearer 1234567890qwertyuiopasdfghjklzxcvbnm"
+
+    response = https.request(request)
   end
 
 end
