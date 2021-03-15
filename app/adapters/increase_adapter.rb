@@ -9,7 +9,7 @@ class IncreaseAdapter
     @connector = Connector::IncreaseTransactions.new
   end
 
-  def get_file
+  def write_file
     response = @connector.fetch_file
     File.write("app/adapters/file.txt", response.read_body)
   end
