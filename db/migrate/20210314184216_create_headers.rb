@@ -1,7 +1,7 @@
 class CreateHeaders < ActiveRecord::Migration[6.0]
   def change
     create_table :headers do |t|
-      t.references :payment, null: false, foreign_key: true
+      t.references :payment, foreign_key: true
       t.integer :registry_type, default: 1
       t.string :payment_identification
       t.integer :currency
