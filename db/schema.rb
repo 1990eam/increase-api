@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_14_184937) do
+ActiveRecord::Schema.define(version: 2021_03_17_204736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 2021_03_14_184937) do
     t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "payment_id"
+    t.integer "amount_to_be_paid", default: 0
+    t.string "date_to_be_paid"
+    t.integer "amount_paid", default: 0
+    t.string "date_paid"
+    t.integer "total_transactions"
+    t.index ["payment_id"], name: "index_clients_on_payment_id"
   end
 
   create_table "discounts", force: :cascade do |t|
@@ -68,7 +75,7 @@ ActiveRecord::Schema.define(version: 2021_03_14_184937) do
     t.integer "registry_type", default: 2
     t.string "transaction_identification"
     t.integer "amount"
-    t.integer "status"
+    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["payment_id"], name: "index_payment_transactions_on_payment_id"
@@ -93,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_03_14_184937) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "clients", "payments"
   add_foreign_key "discounts", "payments"
   add_foreign_key "footers", "payments"
   add_foreign_key "headers", "payments"

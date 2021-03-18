@@ -5,7 +5,7 @@ class CreatePaymentTransactions < ActiveRecord::Migration[6.0]
       t.integer :registry_type, default: 2
       t.string  :transaction_identification
       t.integer :amount
-      t.integer :status
+      t.string :status
 
       t.timestamps
     end

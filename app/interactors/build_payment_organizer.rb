@@ -7,5 +7,6 @@ class BuildPaymentOrganizer
            BuildHeader,
            BuildTransactions,
            BuildDiscounts,
-           BuildFooter
+           BuildFooter,
+           FetchClientData
 end

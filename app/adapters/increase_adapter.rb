@@ -11,12 +11,24 @@ class IncreaseAdapter
 
   def write_file
     response = @connector.fetch_file
-    File.write("app/adapters/file.txt", response.read_body)
+    if response.code != "200"
+      raise StandardError.new "Could not fetch file from API"
+    else
+      File.write("app/storage/file.txt", response.read_body)
+    end
   end
 
   def read_file
-    file = File.open("app/adapters/file.txt")
+    file = File.open("app/storage/file.txt")
     file_data = file.readlines.map(&:chomp)
+  end
+
+  def get_client(client_identification)
+    response = @connector.fetch_client(client_identification)
+
+    if response.code == "200"
+      JSON.parse(response.body)
+    end
   end
 end
 

@@ -6,17 +6,16 @@ class PaymentBuilder
 
   def write_file
     @adapter.write_file
-    @file = File.open("app/adapters/file.txt", "r")
+    @file = File.open("app/storage/file.txt", "r")
   end
 
-  def detect_lines
+  def process_file
     header_line = 0
     transactions_last_line = 0
     discounts_last_line = 0
     footer_line = 0
 
     current_line = 0
-    payment_nr = 1
 
     @file.each_line do |line|
 
@@ -30,26 +29,26 @@ class PaymentBuilder
         when "4"
           footer_line = current_line
 
-          puts "payment number #{payment_nr}"
-          puts "header: #{header_line}"
-          puts "footer: #{footer_line}"
-          payment_nr += 1
-
-          build_payment(header_line, transactions_last_line, discounts_last_line, footer_line)
+          build_payment_chunk(header_line, transactions_last_line, discounts_last_line, footer_line)
       end
       current_line += 1
-
     end
 
   end
 
-  def build_payment(header_line, transactions_last_line, discounts_last_line, footer_line)
-    file_to_array = File.foreach("app/adapters/file.txt").to_a
+  def build_payment_chunk(header_line, transactions_last_line, discounts_last_line, footer_line)
+    file_to_array = File.foreach("app/storage/file.txt").to_a
 
     transactions_lines = file_to_array[header_line + 1..transactions_last_line]
+    transactions_lines.each do |line|
+      line.gsub!("\n", "")
+    end
     discounts_lines = file_to_array[transactions_last_line + 1..discounts_last_line]
-    footer_line = file_to_array[footer_line]
-    header_line = file_to_array[header_line]
+    discounts_lines.each do |line|
+      line.gsub!("\n", "")
+    end
+    footer_line = file_to_array[footer_line].gsub("\n", "")
+    header_line = file_to_array[header_line].gsub("\n", "")
 
     BuildPaymentOrganizer.call(header_line: header_line,
                                transactions_lines: transactions_lines,

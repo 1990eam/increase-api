@@ -1,7 +1,7 @@
 class Payment < ApplicationRecord
-  belongs_to :client, optional: true
-  has_one :header
-  has_one :footer
-  has_many :payment_transactions
-  has_many :discounts
+  belongs_to :client, optional: true, dependent: :destroy
+  has_one :header, dependent: :destroy
+  has_one :footer, dependent: :destroy
+  has_many :payment_transactions, dependent: :destroy
+  has_many :discounts, dependent: :destroy
 end

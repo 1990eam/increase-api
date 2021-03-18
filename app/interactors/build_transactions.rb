@@ -12,7 +12,7 @@ class BuildTransactions
       transaktion.payment = header.payment
       transaktion.transaction_identification = l[0..32]
       transaktion.amount = l[33..45]
-      transaktion.status = l.split("     ").second
+      transaktion.status = (l.split("     ").second) == "1" ? "Aprobado" : "Rechazado"
       transaktion.save
     end
     payment.save
