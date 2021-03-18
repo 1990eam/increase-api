@@ -16,6 +16,7 @@ The PaymentBuilder ```app/builder``` processes the ```file.txt``` in chunks that
 # Execution:
 
 Run ```bundle install``` to install all dependencies.
+Run ```rails db:create && rails db:migrate``` to create database.
 After that is done, run ```rails s``` to start a local server.
 
 This API has 3 main endpoints and 2 admin endpoints to populate and reset the DB.
