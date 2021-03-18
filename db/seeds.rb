@@ -4,6 +4,7 @@ PaymentTransaction.destroy_all
 Discount.destroy_all
 Footer.destroy_all
 Payment.destroy_all
+Client.destroy_all
 
 # puts "Creating Client"
 
