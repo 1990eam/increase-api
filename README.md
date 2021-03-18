@@ -37,7 +37,7 @@ Likewise, you can reach the other endpoints altering the request url with the pa
 
 **IMPORTANT** The increase-transactions API seems to limit the amount of requests in a given time, so the seed will likely not run completely. For demo purposes, you can still access the endpoints to fetch the data that was processed before the API started returning ```500 Internal Server Errors```
 
-*Things I would improve
+# Things I would improve
 
 There sure is a better way to communicate with the API.
 
