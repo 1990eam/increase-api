@@ -37,7 +37,7 @@ Likewise, you can reach the other endpoints altering the request url with the pa
 
 **IMPORTANT** The increase-transactions API seems to limit the amount of requests in a given time, so the seed will likely not run completely. For demo purposes, you can still access the endpoints to fetch the data that was processed before the API started returning ```500 Internal Server Errors```
 
-**Things I would improve**
+*Things I would improve
 
 There sure is a better way to communicate with the API.
 
@@ -47,6 +47,7 @@ I would definitely change the way the HTTP requests are made to better handle ti
 
 I didn't know how to handle the 500 Internal Server errors but they lead me to think that I should fetch the file.txt once and then consult Client data on demand rather than building the whole DB at once and hitting the Client endpoint many times in a short period of time.
 
+I also wanted to host the API on Heroku to avoid running it on local host, but the Heroku service seemed to be down at the moment and was not letting me push to Heroku master.
 
 
 # Ruby / Rails installation
