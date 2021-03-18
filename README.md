@@ -10,7 +10,7 @@ An Adapter ```app/adapters``` then handles the response and writes the file with
 
 The API makes use of the [Interactor gem](https://github.com/collectiveidea/interactor)  to chain processes and organize them in a nice way.
 
-The PaymentBuilder ```app/builder``` processes the ```file.txt``` in chunks to pass to the **Interactor Organizer** ```app/interactors``` which will create and save each instance of the models detailed above.
+The PaymentBuilder ```app/builder``` processes the ```file.txt``` in chunks that will be passed to the **Interactor Organizer** ```app/interactors``` which will create and save each instance of the models detailed above.
 
 
 # Execution:
