@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :payments, only: [ :index ]
+      resources :clients, only: [ :index ]
+
+      resources :clients, only: [:show] do
+        resources :payment_transactions, only: [:index]
+      end
+     get "/admin/seed", to: "admin#seed", as: :seed
+     get "/admin/reset", to: "admin#reset", as: :reset
+    end
+  end
 end
