@@ -8,9 +8,9 @@ The API consists of a Connector ```app/services/connector``` which handles the H
 
 An Adapter ```app/adapters``` then handles the response and writes the file with which the API populates the DB according to the bytes size specifications provided.
 
-The API makes use of the [Interactor gem](https://github.com/collectiveidea/interactor)  to chain processes and organize them in a nice way.
-
 The PaymentBuilder ```app/builder``` processes the ```file.txt``` in chunks that will be passed to the **Interactor Organizer** ```app/interactors``` which will create and save each instance of the models detailed above.
+
+The API makes use of the [Interactor gem](https://github.com/collectiveidea/interactor)  . The organizer receives the data related to a Payment (header, transactions, discounts and footer) extracts it and creates the instances to populate the DB. I chose this gem because it allows to chain and organize processes together.
 
 
 # Execution:
@@ -21,6 +21,8 @@ Run ```bundle install``` to install all dependencies.
 Run ```rails db:create && rails db:migrate``` to create database.
 
 After that is done, run ```rails s``` to start a local server.
+
+# Endpoints
 
 This API has 3 main endpoints and 2 admin endpoints to populate and reset the DB.
 
@@ -43,13 +45,11 @@ Likewise, you can reach the other endpoints altering the request url with the pa
 
 # Things I would improve
 
-There sure is a better way to communicate with the API.
+HTTP request to the API could be improved. Max retries and rescues could be implemented to better handle timeouts/errors.
 
 I'm not sure if the goal was to persist data but I didn't want to delay the presentation.
 
-I would definitely change the way the HTTP requests are made to better handle timeouts/errors.
-
-I didn't know how to handle the 500 Internal Server errors but they lead me to think that I should fetch the file.txt once and then consult Client data on demand rather than building the whole DB at once and hitting the Client endpoint many times in a short period of time.
+Also Jobs could be used instead of the Organizer/Interactors to handle data processing.
 
 I also wanted to host the API on Heroku to avoid running it on local host, but the Heroku service seemed to be down at the moment and was not letting me push to Heroku master.
 
