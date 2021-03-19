@@ -49,7 +49,7 @@ HTTP request to the API could be improved. Max retries and rescues could be impl
 
 I'm not sure if the goal was to persist data but I didn't want to delay the presentation.
 
-Also Jobs could be used instead of the Organizer/Interactors to handle data processing.
+Also Jobs could be used instead of the Organizer/Interactors to handle data processing and retry if needed.
 
 I also wanted to host the API on Heroku to avoid running it on local host, but the Heroku service seemed to be down at the moment and was not letting me push to Heroku master.
 
