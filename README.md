@@ -48,7 +48,8 @@ Admin endpoints:
 ```/api/v1/admin/seed```
 ```/api/v1/admin/reset```
 
-You can populate the DB running ``` curl -s http://localhost:3000/api/v1/admin/seed | jq```
+You can populate the DB (locally) running ``` curl -s http://localhost:3000/api/v1/admin/seed | jq```
+You can reset the DB (locally) running ``` curl -s http://localhost:3000/api/v1/admin/reset | jq```
 
 Likewise, you can reach the other endpoints altering the request url with the patterns described above.
 
