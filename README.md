@@ -59,7 +59,7 @@ Likewise, you can reach the other endpoints altering the request url with the pa
 
 # Things I would improve
 
-Jobs could be used instead of the Organizer/Interactors to handle data processing and retry if needed.
+Jobs could be used instead of the Organizer/Interactors to handle client data fetch.
 
 HTTP request to the API could be improved. Max retries and rescues could be implemented to better handle timeouts/errors.
 
