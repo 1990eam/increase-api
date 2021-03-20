@@ -3,12 +3,11 @@ class Api::V1::AdminController < Api::V1::BaseController
 
   def seed
     @builder = PaymentBuilder.new
-    @builder.process_file do
-      msg = { :seed => "OK" }
-        respond_with do |format|
-          format.json  { render :json => msg }
-        end
-    end
+    @builder.process_file
+    msg = { :seed => "OK" }
+      respond_with do |format|
+        format.json  { render :json => msg }
+      end
   end
 
   def reset
