@@ -15,7 +15,8 @@ The API makes use of the [Interactor gem](https://github.com/collectiveidea/inte
 
 # Execution:
 
-The API is hosted on Heroku (https://increase-api.herokuapp.com/), so you can hit the live version's endpoints or follow the instructions below to run it on local host (live version is provided in case something fails to install locally).
+The API is hosted on Heroku (https://increase-api.herokuapp.com/), so you can hit the live version's endpoints or follow the instructions below to run it on local host.
+Live version is provided in case something fails to install locally.
 
 
 You need Postgresql. Run ```sudo apt install -y postgresql postgresql-contrib libpq-dev build-essential
@@ -31,6 +32,7 @@ After that is done, run ```rails s``` to start a local server.
 **Base URL's**
 
 Live: https://increase-api.herokuapp.com/
+
 Local: http://localhost:3000/
 
 This API has 3 main endpoints and 2 admin endpoints to populate and reset the DB.
