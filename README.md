@@ -23,6 +23,7 @@ You need Postgresql. Run ```sudo apt install -y postgresql postgresql-contrib li
 sudo -u postgres psql --command "CREATE ROLE `whoami` LOGIN ```
 
 Run ```bundle install``` to install all dependencies.
+
 Run ```rails db:create && rails db:migrate``` to create database.
 
 After that is done, run ```rails s``` to start a local server.
@@ -49,6 +50,7 @@ Admin endpoints:
 ```/api/v1/admin/reset```
 
 You can populate the DB (locally) running ``` curl -s http://localhost:3000/api/v1/admin/seed | jq```
+
 You can reset the DB (locally) running ``` curl -s http://localhost:3000/api/v1/admin/reset | jq```
 
 Likewise, you can reach the other endpoints altering the request url with the patterns described above.
