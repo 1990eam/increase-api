@@ -14,6 +14,7 @@ class Connector::IncreaseTransactions
 
     request = Net::HTTP::Get.new(url)
     request["Authorization"] = "Bearer 1234567890qwertyuiopasdfghjklzxcvbnm"
+    request["Retry-After"] = 5
 
     response = https.request(request)
   end
@@ -27,6 +28,7 @@ class Connector::IncreaseTransactions
 
     request = Net::HTTP::Get.new(url)
     request["Authorization"] = "Bearer 1234567890qwertyuiopasdfghjklzxcvbnm"
+    request["Retry-After"] = 5
 
     response = https.request(request)
   end
