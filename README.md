@@ -55,7 +55,7 @@ You can reset the DB (locally) running ``` curl -s http://localhost:3000/api/v1/
 
 Likewise, you can reach the other endpoints altering the request url with the patterns described above.
 
-**IMPORTANT** The increase-transactions API seems to limit the amount of requests in a given time, so the seed will likely not run completely. For demo purposes, you can still access the endpoints to fetch the data that was processed before the API started returning ```500 Internal Server Errors```
+**IMPORTANT** The increase-transactions API seems to limit the amount of requests in a given time, so seeding will result in 500 Internal Server Errors due to client data fetch. All HTTP requests have a ``` max_retries = 5```  spaced 5 seconds apart. You can still access the endpoints to fetch the data that was processed until the API started returning ```500 Internal Server Errors``` and max_retries was reached.
 
 # Things I would improve
 
