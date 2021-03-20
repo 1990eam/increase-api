@@ -54,14 +54,13 @@ Likewise, you can reach the other endpoints altering the request url with the pa
 
 # Things I would improve
 
+Jobs could be used instead of the Organizer/Interactors to handle data processing and retry if needed.
+
 HTTP request to the API could be improved. Max retries and rescues could be implemented to better handle timeouts/errors.
 
 I'm not sure if the goal was to persist data but I didn't want to delay the presentation.
 
-Also Jobs could be used instead of the Organizer/Interactors to handle data processing and retry if needed.
-
-I also wanted to host the API on Heroku to avoid running it on local host, but the Heroku service seemed to be down at the moment and was not letting me push to Heroku master.
-
+String processing algo's could be improved.
 
 # Ruby / Rails installation
 
