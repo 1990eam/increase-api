@@ -10,7 +10,7 @@ class IncreaseAdapter
   end
 
   def write_file
-    response = @connector.fetch_file
+    response = @connector.fetch_file(retries = 0)
     if response.code != "200"
       raise StandardError.new "Could not fetch file from API"
     else
@@ -24,7 +24,7 @@ class IncreaseAdapter
   end
 
   def get_client(client_identification)
-    response = @connector.fetch_client(client_identification)
+    response = @connector.fetch_client(client_identification, retries = 0)
 
     if response.code == "200"
       JSON.parse(response.body)
