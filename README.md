@@ -10,7 +10,7 @@ An Adapter ```app/adapters``` then handles the response and writes the file with
 
 The PaymentBuilder ```app/builder``` processes the ```file.txt``` in chunks that will be passed to the **Interactor Organizer** ```app/interactors``` which will create and save each instance of the models detailed above.
 
-The API makes use of the [Interactor gem](https://github.com/collectiveidea/interactor)  . The organizer receives the data related to a Payment (header, transactions, discounts and footer) extracts it and creates the instances to populate the DB. I chose this gem because it allows to chain and organize processes together.
+The API makes use of the [Interactor gem](https://github.com/collectiveidea/interactor)  . The organizer receives the data related to a Payment (header, transactions, discounts and footer) extracts it and creates the instances to populate the DB. It then passes the processed data to the next Interactor and so on until a Payment is fully built with it's associated transactions, discounts, client, etc. I chose this gem because it allows to chain and organize processes together.
 
 
 # Execution:
